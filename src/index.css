@@ -119,15 +119,6 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Hero Section Styles */
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-  
-  .hero-text-glow {
-    text-shadow: 0 0 20px hsl(var(--primary-light) / 0.5);
-  }
-  
   /* Card Hover Effects */
   .card-hover {
     transition: var(--transition-smooth);
