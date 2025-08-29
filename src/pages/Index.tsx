@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import TrustSection from "@/components/TrustSection";
 import ProjectDomainsSection from "@/components/ProjectDomainsSection";
@@ -9,6 +10,7 @@ import LeadCaptureSection from "@/components/LeadCaptureSection";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Navigation />
       <HeroSection />
       <TrustSection />
       <ProjectDomainsSection />

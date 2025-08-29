@@ -1,26 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import Navigation from "./Navigation";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-background overflow-hidden">
-      {/* Header with Logo */}
-      <header className="absolute top-0 left-0 right-0 z-20 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-6 py-4">
-          <img 
-            src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
-            alt="TRIZEN" 
-            className="h-10 md:h-12 w-auto animate-fade-in"
-          />
-        </div>
-      </header>
-
-      {/* Navigation */}
-      <div className="absolute top-[70px] md:top-[80px] left-0 right-0 z-10">
-        <Navigation />
-      </div>
-
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-bounce-gentle"></div>

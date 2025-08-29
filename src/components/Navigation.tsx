@@ -7,30 +7,30 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Phone, Search, User, ChevronDown } from "lucide-react";
+import { Phone, Search, User } from "lucide-react";
 
 const Navigation = () => {
   return (
-    <nav className="bg-primary text-primary-foreground shadow-lg">
+    <nav className="bg-background/95 backdrop-blur-md border-b border-border/20 shadow-sm sticky top-0 z-50">
       {/* Top Header Bar */}
-      <div className="bg-primary-dark">
+      <div className="bg-primary/10 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-2">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-primary">
                 <Phone className="h-4 w-4" />
                 +91 9030333433
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary">
+              <Button variant="ghost" size="sm" className="text-primary hover:bg-primary/10 font-medium">
                 2025-26 IEEE TITLES
               </Button>
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary">
+              <Button variant="ghost" size="sm" className="text-foreground hover:bg-primary/10">
                 <Search className="h-4 w-4 mr-2" />
                 Search
               </Button>
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary">
+              <Button variant="ghost" size="sm" className="text-foreground hover:bg-primary/10">
                 <User className="h-4 w-4 mr-2" />
                 Sign Up / Log In
               </Button>
@@ -41,17 +41,25 @@ const Navigation = () => {
 
       {/* Main Navigation */}
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
+              alt="TRIZEN Logo" 
+              className="h-12 w-auto"
+            />
+          </div>
           <NavigationMenu className="max-w-none">
-            <NavigationMenuList className="gap-1">
+            <NavigationMenuList className="gap-2">
               
               {/* B.Tech Projects Dropdown */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary hover:bg-accent data-[active]:bg-accent data-[state=open]:bg-accent bg-transparent px-4 py-2 text-sm font-medium transition-all duration-200">
                   B.Tech Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="flex w-[1000px] bg-popover">
+                  <div className="flex w-[1000px] bg-background/98 backdrop-blur-md border border-border/50 shadow-xl rounded-lg">
                     {/* Left Sidebar */}
                     <div className="w-64 bg-primary/5 p-6 border-r border-border">
                       <h3 className="font-bold text-primary mb-4 text-lg">IEEE Major Projects</h3>
@@ -134,11 +142,11 @@ const Navigation = () => {
 
               {/* M.Tech Projects Dropdown */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary hover:bg-accent data-[active]:bg-accent data-[state=open]:bg-accent bg-transparent px-4 py-2 text-sm font-medium transition-all duration-200">
                   M.Tech Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="flex w-[900px] bg-popover">
+                  <div className="flex w-[900px] bg-background/98 backdrop-blur-md border border-border/50 shadow-xl rounded-lg">
                     {/* Left Sidebar */}
                     <div className="w-64 bg-primary/5 p-6 border-r border-border">
                       <h3 className="font-bold text-primary mb-4 text-lg">PG Research Projects</h3>
@@ -206,11 +214,11 @@ const Navigation = () => {
 
               {/* Diploma Projects */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary hover:bg-accent data-[active]:bg-accent data-[state=open]:bg-accent bg-transparent px-4 py-2 text-sm font-medium transition-all duration-200">
                   Diploma Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="flex w-[700px] bg-popover">
+                  <div className="flex w-[700px] bg-background/98 backdrop-blur-md border border-border/50 shadow-xl rounded-lg">
                     {/* Left Sidebar */}
                     <div className="w-56 bg-primary/5 p-6 border-r border-border">
                       <h3 className="font-bold text-primary mb-4 text-lg">Polytechnic Projects</h3>
@@ -262,11 +270,11 @@ const Navigation = () => {
 
               {/* Services */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary hover:bg-accent data-[active]:bg-accent data-[state=open]:bg-accent bg-transparent px-4 py-2 text-sm font-medium transition-all duration-200">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="flex w-[600px] bg-popover">
+                  <div className="flex w-[600px] bg-background/98 backdrop-blur-md border border-border/50 shadow-xl rounded-lg">
                     {/* Left Sidebar */}
                     <div className="w-48 bg-primary/5 p-6 border-r border-border">
                       <h3 className="font-bold text-primary mb-4 text-lg">Our Services</h3>
@@ -316,10 +324,10 @@ const Navigation = () => {
 
           {/* Right side buttons */}
           <div className="flex items-center gap-4">
-            <Button variant="secondary" size="sm">
+            <Button variant="default" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
               Start a Project
             </Button>
-            <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-light">
+            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
               Paper Publishing
             </Button>
           </div>
