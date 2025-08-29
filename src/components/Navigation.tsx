@@ -83,20 +83,19 @@ const Navigation = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Logo and Navigation Menu - Left Aligned */}
+          <div className="flex items-center gap-8">
             <img 
               src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
               alt="TRIZEN Logo" 
               className="h-8 md:h-12 w-auto"
             />
-          </div>
 
-          {/* Desktop Navigation - Hidden on mobile */}
-          <div className="hidden xl:flex items-center gap-8">
-            <NavigationMenu className="max-w-none">
-              <NavigationMenuList className="gap-2">
-              
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden xl:flex items-center">
+              <NavigationMenu className="max-w-none">
+                <NavigationMenuList className="gap-2">
+                
                 {/* B.Tech Projects Dropdown */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-foreground hover:text-primary hover:bg-accent data-[active]:bg-accent data-[state=open]:bg-accent bg-transparent px-4 py-2 text-sm font-medium transition-all duration-200">
@@ -351,8 +350,9 @@ const Navigation = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-              </NavigationMenuList>
-            </NavigationMenu>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
           </div>
 
           {/* Right side buttons - Responsive */}

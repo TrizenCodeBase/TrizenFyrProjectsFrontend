@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary-dark rounded-full mix-blend-multiply filter blur-xl animate-bounce-gentle delay-400"></div>
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-screen pt-32">
+      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-screen pt-8 md:pt-16">
 
         <div>
           {/* Main Headline */}
