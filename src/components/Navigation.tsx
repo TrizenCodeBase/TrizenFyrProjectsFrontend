@@ -42,16 +42,16 @@ const Navigation = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Logo and Navigation Menu */}
+          <div className="flex items-center gap-8">
             <img 
               src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
               alt="TRIZEN Logo" 
               className="h-12 w-auto"
             />
-          </div>
-          <NavigationMenu className="max-w-none">
-            <NavigationMenuList className="gap-2">
+            
+            <NavigationMenu className="max-w-none">
+              <NavigationMenuList className="gap-2">
               
               {/* B.Tech Projects Dropdown */}
               <NavigationMenuItem>
@@ -321,6 +321,7 @@ const Navigation = () => {
 
             </NavigationMenuList>
           </NavigationMenu>
+          </div>
 
           {/* Right side buttons */}
           <div className="flex items-center gap-4">
