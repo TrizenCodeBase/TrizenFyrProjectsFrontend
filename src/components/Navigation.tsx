@@ -371,7 +371,7 @@ const Navigation = () => {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[350px] sm:w-[400px] bg-background/98 backdrop-blur-md">
+              <SheetContent side="right" className="w-[350px] sm:w-[400px] bg-background border-l border-border shadow-xl">
                 <div className="flex flex-col h-full">
                   {/* Mobile Header */}
                   <div className="flex items-center justify-between py-4 border-b border-border">
@@ -383,7 +383,7 @@ const Navigation = () => {
                   </div>
 
                   {/* Mobile Navigation */}
-                  <div className="flex-1 overflow-y-auto py-6">
+                  <div className="flex-1 overflow-y-auto py-6 space-y-4">
                     {/* Mobile Project Sections */}
                     <MobileProjectSection 
                       title="B.Tech Projects"
@@ -450,16 +450,16 @@ const Navigation = () => {
                     />
 
                     {/* Mobile Contact Info */}
-                    <div className="pt-6 mt-6 border-t border-border">
+                    <div className="pt-6 mt-6 border-t border-border bg-secondary/30 rounded-lg p-4">
                       <div className="space-y-4">
-                        <div className="flex items-center gap-3 text-primary">
-                          <Phone className="h-4 w-4" />
-                          <span className="font-medium">+91 9030333433</span>
+                        <div className="flex items-center gap-3 text-primary font-medium">
+                          <Phone className="h-5 w-5" />
+                          <span>+91 9030333433</span>
                         </div>
-                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
                           Start a Project
                         </Button>
-                        <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                        <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium">
                           Paper Publishing
                         </Button>
                       </div>
