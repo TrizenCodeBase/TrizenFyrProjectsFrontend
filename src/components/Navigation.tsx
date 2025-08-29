@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Phone, Search, User } from "lucide-react";
+import { Phone, Search, User, ChevronDown } from "lucide-react";
 
 const Navigation = () => {
   return (
@@ -47,65 +47,85 @@ const Navigation = () => {
               
               {/* B.Tech Projects Dropdown */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent">
+                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
                   B.Tech Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-4 gap-6 p-6 w-[800px]">
+                  <div className="flex w-[1000px] bg-popover">
+                    {/* Left Sidebar */}
+                    <div className="w-64 bg-primary/5 p-6 border-r border-border">
+                      <h3 className="font-bold text-primary mb-4 text-lg">IEEE Major Projects</h3>
+                      <div className="space-y-3">
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Application Major Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Minor Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Final Year Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Capstone Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Industry Projects</a>
+                      </div>
+                    </div>
                     
-                    {/* Technologies Column */}
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">TECHNOLOGIES</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">EMBEDDED</a>
-                        <a href="#" className="block hover:text-primary transition-colors">MATLAB</a>
-                        <a href="#" className="block hover:text-primary transition-colors">VLSI</a>
-                        <a href="#" className="block hover:text-primary transition-colors">ELECTRICAL</a>
-                        <a href="#" className="block hover:text-primary transition-colors">PYTHON</a>
-                        <a href="#" className="block hover:text-primary transition-colors">ANDROID</a>
-                        <a href="#" className="block hover:text-primary transition-colors">JAVA</a>
-                      </div>
-                    </div>
+                    {/* Right Content Grid */}
+                    <div className="flex-1 p-6">
+                      <div className="grid grid-cols-4 gap-8">
+                        {/* Technologies */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">TECHNOLOGIES</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">EMBEDDED SYSTEMS</a>
+                            <a href="#" className="block hover:text-primary transition-colors">MATLAB/SIMULINK</a>
+                            <a href="#" className="block hover:text-primary transition-colors">VLSI DESIGN</a>
+                            <a href="#" className="block hover:text-primary transition-colors">ELECTRICAL SYSTEMS</a>
+                            <a href="#" className="block hover:text-primary transition-colors">PYTHON/ML</a>
+                            <a href="#" className="block hover:text-primary transition-colors">ANDROID/MOBILE</a>
+                            <a href="#" className="block hover:text-primary transition-colors">JAVA ENTERPRISE</a>
+                            <a href="#" className="block hover:text-primary transition-colors">WEB TECHNOLOGIES</a>
+                          </div>
+                        </div>
 
-                    {/* Domains Column */}
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">DOMAINS</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Robotics</a>
-                        <a href="#" className="block hover:text-primary transition-colors">IoT</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Deep Learning</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Industrial Automation</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Biomedical</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Renewable</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Mechatronics</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Artificial Intelligence</a>
-                      </div>
-                    </div>
+                        {/* Domains */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">DOMAINS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Robotics & Automation</a>
+                            <a href="#" className="block hover:text-primary transition-colors">IoT & Smart Systems</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Machine Learning & AI</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Computer Vision</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Biomedical Engineering</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Renewable Energy</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Smart Agriculture</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Blockchain Technology</a>
+                          </div>
+                        </div>
 
-                    {/* Controllers Column */}
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">CONTROLLERS</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">ARM7</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Raspberry Pi</a>
-                        <a href="#" className="block hover:text-primary transition-colors">NodeMCU</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Arduino</a>
-                        <a href="#" className="block hover:text-primary transition-colors">PIC16F77A</a>
-                        <a href="#" className="block hover:text-primary transition-colors">ESP32</a>
-                        <a href="#" className="block hover:text-primary transition-colors">STM32</a>
-                      </div>
-                    </div>
+                        {/* Controllers */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">CONTROLLERS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">ARM Cortex Series</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Raspberry Pi 4/5</a>
+                            <a href="#" className="block hover:text-primary transition-colors">ESP32/NodeMCU</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Arduino Mega/Uno</a>
+                            <a href="#" className="block hover:text-primary transition-colors">PIC Microcontrollers</a>
+                            <a href="#" className="block hover:text-primary transition-colors">FPGA Development</a>
+                            <a href="#" className="block hover:text-primary transition-colors">STM32 Series</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Jetson Nano/Xavier</a>
+                          </div>
+                        </div>
 
-                    {/* Others Column */}
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">OTHERS</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Android</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Embedded with Matlab</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Web Applications</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Cloud Computing</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Blockchain</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Cybersecurity</a>
+                        {/* Specializations */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">SPECIALIZATIONS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Cloud Computing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Cybersecurity</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Data Science</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Mobile App Development</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Game Development</a>
+                            <a href="#" className="block hover:text-primary transition-colors">DevOps & CI/CD</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Full Stack Development</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Network Security</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -114,36 +134,70 @@ const Navigation = () => {
 
               {/* M.Tech Projects Dropdown */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent">
+                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
                   M.Tech Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-3 gap-6 p-6 w-[600px]">
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">ADVANCED RESEARCH</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Machine Learning</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Computer Vision</a>
-                        <a href="#" className="block hover:text-primary transition-colors">NLP</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Signal Processing</a>
+                  <div className="flex w-[900px] bg-popover">
+                    {/* Left Sidebar */}
+                    <div className="w-64 bg-primary/5 p-6 border-r border-border">
+                      <h3 className="font-bold text-primary mb-4 text-lg">PG Research Projects</h3>
+                      <div className="space-y-3">
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Thesis Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Research Publications</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Conference Papers</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Journal Publications</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Industry Collaboration</a>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">NETWORKING</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">5G/6G Networks</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Network Security</a>
-                        <a href="#" className="block hover:text-primary transition-colors">SDN</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Edge Computing</a>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">EMERGING TECH</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Quantum Computing</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Blockchain</a>
-                        <a href="#" className="block hover:text-primary transition-colors">AR/VR</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Metaverse</a>
+                    
+                    {/* Right Content Grid */}
+                    <div className="flex-1 p-6">
+                      <div className="grid grid-cols-3 gap-8">
+                        {/* Advanced Research */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">ADVANCED RESEARCH</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Deep Learning & Neural Networks</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Computer Vision & Image Processing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Natural Language Processing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Advanced Signal Processing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Reinforcement Learning</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Quantum Machine Learning</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Federated Learning</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Explainable AI</a>
+                          </div>
+                        </div>
+
+                        {/* Networking & Systems */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">NETWORKING & SYSTEMS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">5G/6G Wireless Networks</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Software Defined Networking</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Edge & Fog Computing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Network Function Virtualization</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Distributed Systems</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Cloud Native Architecture</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Microservices & Containers</a>
+                            <a href="#" className="block hover:text-primary transition-colors">High Performance Computing</a>
+                          </div>
+                        </div>
+
+                        {/* Emerging Technologies */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">EMERGING TECH</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Quantum Computing</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Blockchain & Cryptocurrency</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Augmented Reality (AR)</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Virtual Reality (VR)</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Mixed Reality (MR)</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Digital Twins</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Industry 4.0</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Autonomous Systems</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -152,27 +206,54 @@ const Navigation = () => {
 
               {/* Diploma Projects */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent">
+                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
                   Diploma Projects
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-6 p-6 w-[400px]">
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">BASIC PROJECTS</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Simple Electronics</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Basic Programming</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Web Development</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Database Systems</a>
+                  <div className="flex w-[700px] bg-popover">
+                    {/* Left Sidebar */}
+                    <div className="w-56 bg-primary/5 p-6 border-r border-border">
+                      <h3 className="font-bold text-primary mb-4 text-lg">Polytechnic Projects</h3>
+                      <div className="space-y-3">
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Final Semester Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Mini Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Workshop Projects</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Industrial Training</a>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-primary mb-3 border-b border-border pb-2">PRACTICAL</h3>
-                      <div className="space-y-2 text-sm">
-                        <a href="#" className="block hover:text-primary transition-colors">Home Automation</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Security Systems</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Motor Control</a>
-                        <a href="#" className="block hover:text-primary transition-colors">Sensor Based</a>
+                    
+                    {/* Right Content Grid */}
+                    <div className="flex-1 p-6">
+                      <div className="grid grid-cols-2 gap-8">
+                        {/* Basic Projects */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">BASIC PROJECTS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Simple Electronics Circuits</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Basic Programming Logic</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Web Development Basics</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Database Management</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Mobile App Basics</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Networking Fundamentals</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Digital Electronics</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Basic Automation</a>
+                          </div>
+                        </div>
+
+                        {/* Practical Applications */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">PRACTICAL APPLICATIONS</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Home Automation Systems</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Security & Surveillance</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Motor Control Circuits</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Sensor-Based Projects</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Smart Lighting Systems</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Temperature Monitoring</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Voice Control Systems</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Traffic Management</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -181,17 +262,50 @@ const Navigation = () => {
 
               {/* Services */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent">
+                <NavigationMenuTrigger className="text-primary-foreground hover:bg-primary-light data-[active]:bg-primary-light data-[state=open]:bg-primary-light bg-transparent px-4 py-2 text-sm font-medium">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="p-6 w-[300px]">
-                    <div className="space-y-3">
-                      <a href="#" className="block hover:text-primary transition-colors font-medium">Project Implementation</a>
-                      <a href="#" className="block hover:text-primary transition-colors font-medium">Documentation Support</a>
-                      <a href="#" className="block hover:text-primary transition-colors font-medium">Paper Publishing</a>
-                      <a href="#" className="block hover:text-primary transition-colors font-medium">Training & Workshops</a>
-                      <a href="#" className="block hover:text-primary transition-colors font-medium">Internships</a>
+                  <div className="flex w-[600px] bg-popover">
+                    {/* Left Sidebar */}
+                    <div className="w-48 bg-primary/5 p-6 border-r border-border">
+                      <h3 className="font-bold text-primary mb-4 text-lg">Our Services</h3>
+                      <div className="space-y-3">
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Academic Support</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Research Assistance</a>
+                        <a href="#" className="block text-foreground hover:text-primary transition-colors font-medium">Career Guidance</a>
+                      </div>
+                    </div>
+                    
+                    {/* Right Content Grid */}
+                    <div className="flex-1 p-6">
+                      <div className="grid grid-cols-2 gap-8">
+                        {/* Project Services */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">PROJECT SERVICES</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Complete Project Implementation</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Source Code Development</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Documentation & Reports</a>
+                            <a href="#" className="block hover:text-primary transition-colors">PPT Presentations</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Video Demonstrations</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Live Project Support</a>
+                          </div>
+                        </div>
+
+                        {/* Additional Services */}
+                        <div>
+                          <h4 className="font-semibold text-primary mb-4 text-sm uppercase tracking-wide border-b border-primary/20 pb-2">ADDITIONAL SERVICES</h4>
+                          <div className="space-y-2 text-sm">
+                            <a href="#" className="block hover:text-primary transition-colors">Paper Publishing Support</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Technical Workshops</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Industry Internships</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Career Counselling</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Placement Assistance</a>
+                            <a href="#" className="block hover:text-primary transition-colors">Certification Courses</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </NavigationMenuContent>
