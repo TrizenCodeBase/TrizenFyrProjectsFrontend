@@ -6,6 +6,7 @@ import ProcessSection from "@/components/ProcessSection";
 import SampleProjectsSection from "@/components/SampleProjectsSection";
 import DeliverablesSection from "@/components/DeliverablesSection";
 import LeadCaptureSection from "@/components/LeadCaptureSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <SampleProjectsSection />
       <DeliverablesSection />
       <LeadCaptureSection />
+      <Footer />
     </div>
   );
 };
