@@ -130,6 +130,15 @@ All colors MUST be HSL.
     @apply bg-secondary/10;
   }
   
+  /* Gradient Backgrounds */
+  .bg-gradient-subtle {
+    @apply bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary;
+  }
+  
   /* Custom Shadows */
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);

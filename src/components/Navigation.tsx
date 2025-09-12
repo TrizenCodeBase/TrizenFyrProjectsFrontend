@@ -53,6 +53,7 @@ const Navigation = () => {
 
   return (
     <nav className="bg-background/95 backdrop-blur-md border-b border-border/20 shadow-sm sticky top-0 z-50">
+      {/* Light theme for entire navigation - keeping original design */}
       {/* Top Header Bar - Hidden on mobile */}
       <div className="bg-primary/10 backdrop-blur-sm hidden md:block">
         <div className="container mx-auto px-4 md:px-6 py-2">
@@ -60,7 +61,7 @@ const Navigation = () => {
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-2 text-primary">
                 <Phone className="h-4 w-4" />
-                <span className="hidden sm:inline">+91 9030333433</span>
+                <span className="hidden sm:inline">+91 8639648822</span>
               </span>
             </div>
             <div className="flex items-center gap-2 md:gap-4">
@@ -103,6 +104,7 @@ const Navigation = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="flex w-[min(1000px,95vw)] bg-background/98 backdrop-blur-md border border-border/50 shadow-xl rounded-lg">
+                      {/* Light theme dropdowns for better readability */}
                       {/* Left Sidebar */}
                       <div className="w-64 bg-primary/5 p-6 border-r border-border">
                         <h3 className="font-bold text-primary mb-4 text-lg">IEEE Major Projects</h3>
@@ -454,7 +456,7 @@ const Navigation = () => {
                       <div className="space-y-4">
                         <div className="flex items-center gap-3 text-primary font-medium">
                           <Phone className="h-5 w-5" />
-                          <span>+91 9030333433</span>
+                          <span>+91 8639648822</span>
                         </div>
                         <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
                           Start a Project

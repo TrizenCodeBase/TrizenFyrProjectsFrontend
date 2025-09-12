@@ -82,7 +82,7 @@ const LeadCaptureSection = () => {
                       <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="mobile"
-                        placeholder="+91 9876543210"
+                        placeholder="+91 8639648822"
                         className="pl-10"
                       />
                     </div>
@@ -164,11 +164,11 @@ const LeadCaptureSection = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Phone className="h-4 w-4" />
-                      <span>+91 98765 43210</span>
+                      <span>+91 8639648822</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-4 w-4" />
-                      <span>support@trizen.com</span>
+                      <span>support@trizenventures.com</span>
                     </div>
                   </div>
                   <div className="mt-4 text-sm opacity-90">
