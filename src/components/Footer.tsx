@@ -1,116 +1,163 @@
-import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-subtle border-t">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
-                alt="TRIZEN Logo" 
-                className="h-10 w-auto"
-              />
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Empowering B.Tech students with innovative final year projects. Complete solutions with source code, documentation, and 24/7 support.
+    <footer className="bg-gradient-primary text-white">
+      {/* Newsletter Section */}
+      <div className="border-b border-white/10">
+        <div className="container mx-auto px-6 py-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Stay Updated with Latest Projects
+            </h3>
+            <p className="text-white/80 mb-8 text-lg">
+              Get notified about new project releases, industry trends, and exclusive resources
             </p>
-            <div className="flex space-x-3">
-              <Button variant="outline" size="sm" className="p-2">
-                <ExternalLink className="h-4 w-4" />
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <Input 
+                type="email" 
+                placeholder="Enter your email address"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+              />
+              <Button variant="secondary" className="whitespace-nowrap font-semibold">
+                Subscribe Now
               </Button>
-              <Button variant="outline" size="sm" className="p-2">
-                <ExternalLink className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="sm" className="p-2">
-                <ExternalLink className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Project Categories */}
-          <div className="space-y-6">
-            <h3 className="text-foreground font-semibold text-base">Project Categories</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">AI & Machine Learning</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">IoT & Embedded Systems</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Cloud Computing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Blockchain & Crypto</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Mobile Development</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Web Development</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-6">
-            <h3 className="text-foreground font-semibold text-base">Services</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Custom Projects</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Source Code</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">24/7 Support</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Project Guidance</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Technical Consultation</a></li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="text-foreground font-semibold text-base">Get in Touch</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Email us</p>
-                  <a href="mailto:support@trizen.tech" className="text-sm text-foreground hover:text-primary transition-colors">
-                    support@trizen.tech
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Call us</p>
-                  <a href="tel:+91-9876543210" className="text-sm text-foreground hover:text-primary transition-colors">
-                    +91-9876543210
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-sm text-foreground">
-                    Bangalore, Karnataka<br />
-                    India
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-border pt-8 mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-              <p className="text-sm text-muted-foreground">
-                © 2024 TRIZEN. All rights reserved.
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div>
+              <img 
+                src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
+                alt="TRIZEN Logo" 
+                className="h-12 w-auto mb-4 brightness-0 invert"
+              />
+              <p className="text-white/80 leading-relaxed">
+                Leading provider of innovative final year projects for engineering students. 
+                Empowering the next generation with cutting-edge technology solutions.
               </p>
-              <div className="flex space-x-6">
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Refund Policy</a>
-              </div>
             </div>
             
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <span>Made with</span>
-              <span className="text-primary">❤️</span>
-              <span>in India</span>
+            {/* Social Links */}
+            <div className="flex space-x-4">
+              <Button size="icon" variant="ghost" className="hover:bg-white/10 text-white hover:text-secondary">
+                <Facebook className="h-5 w-5" />
+              </Button>
+              <Button size="icon" variant="ghost" className="hover:bg-white/10 text-white hover:text-secondary">
+                <Twitter className="h-5 w-5" />
+              </Button>
+              <Button size="icon" variant="ghost" className="hover:bg-white/10 text-white hover:text-secondary">
+                <Linkedin className="h-5 w-5" />
+              </Button>
+              <Button size="icon" variant="ghost" className="hover:bg-white/10 text-white hover:text-secondary">
+                <Instagram className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6 text-secondary">Quick Links</h4>
+            <div className="space-y-3">
+              {[
+                'B.Tech Projects',
+                'M.Tech Projects', 
+                'Diploma Projects',
+                'IEEE Projects',
+                'Documentation',
+                'Support Center'
+              ].map((link) => (
+                <a 
+                  key={link}
+                  href="#" 
+                  className="block text-white/80 hover:text-secondary transition-colors hover:translate-x-1 transform duration-200"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Project Domains */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6 text-secondary">Project Domains</h4>
+            <div className="space-y-3">
+              {[
+                'Machine Learning & AI',
+                'IoT & Embedded Systems',
+                'Blockchain Technology',
+                'Cloud Computing',
+                'Robotics & Automation',
+                'Mobile App Development'
+              ].map((domain) => (
+                <a 
+                  key={domain}
+                  href="#" 
+                  className="block text-white/80 hover:text-secondary transition-colors hover:translate-x-1 transform duration-200"
+                >
+                  {domain}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6 text-secondary">Get In Touch</h4>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
+                <span className="text-white/80">+91 9030333433</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
+                <span className="text-white/80">info@trizen.tech</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                <span className="text-white/80">
+                  Innovation Hub, Tech District<br />
+                  Hyderabad, Telangana 500032
+                </span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-6">
+              <Button variant="secondary" className="w-full font-semibold shadow-professional">
+                Start Your Project
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-white/70 text-sm">
+              © 2024 TRIZEN Technologies. All rights reserved. | Crafted with innovation.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-white/70 hover:text-secondary transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-white/70 hover:text-secondary transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-white/70 hover:text-secondary transition-colors">
+                Cookie Policy
+              </a>
             </div>
           </div>
         </div>
