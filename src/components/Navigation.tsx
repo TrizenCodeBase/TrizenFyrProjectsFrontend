@@ -86,7 +86,7 @@ const Navigation = () => {
           {/* Logo and Navigation Menu - Left Aligned */}
           <div className="flex items-center gap-8">
             <img 
-              src="/lovable-uploads/5388c539-cddb-44b2-8ad4-a1b8cfd37341.png" 
+              src="/trizen-logo.png" 
               alt="TRIZEN Logo" 
               className="h-8 md:h-12 w-auto"
             />

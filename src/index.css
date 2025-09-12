@@ -17,36 +17,32 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* TRIZEN Purple Brand Colors */
-    --primary: 258 82% 50%;
+    /* TRIZEN Brand Colors - Deep Blue & Teal */
+    --primary: 215 80% 25%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 258 82% 65%;
-    --primary-dark: 258 82% 35%;
+    --primary-light: 215 70% 35%;
+    --primary-dark: 215 85% 20%;
 
-    --secondary: 245 25% 95%;
-    --secondary-foreground: 258 82% 35%;
+    --secondary: 180 50% 60%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 245 25% 95%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 258 30% 92%;
-    --accent-foreground: 258 82% 35%;
+    --accent: 180 30% 90%;
+    --accent-foreground: 215 80% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 245 25% 88%;
-    --input: 245 25% 88%;
-    --ring: 258 82% 50%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 215 80% 25%;
 
-    /* Custom Design Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--accent)));
-    
+    /* Custom Design Tokens - Bold Colors Only */    
     --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
     --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 40px hsl(var(--primary-light) / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--secondary) / 0.3);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -70,25 +66,25 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 215 25% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 215 25% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 215 25% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 180 50% 60%;
+    --primary-foreground: 215 25% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 215 80% 25%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 15% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 215 20% 18%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -125,13 +121,13 @@ All colors MUST be HSL.
     @apply hover:shadow-card hover:-translate-y-1;
   }
   
-  /* Gradient Backgrounds */
-  .bg-gradient-primary {
-    background: var(--gradient-primary);
+  /* Professional Backgrounds */
+  .bg-primary-subtle {
+    @apply bg-primary/5;
   }
   
-  .bg-gradient-subtle {
-    background: var(--gradient-subtle);
+  .bg-secondary-subtle {
+    @apply bg-secondary/10;
   }
   
   /* Custom Shadows */
