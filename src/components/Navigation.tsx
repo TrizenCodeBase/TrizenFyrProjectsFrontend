@@ -359,7 +359,12 @@ const Navigation = () => {
 
           {/* Right side buttons - Responsive */}
           <div className="flex items-center gap-2 md:gap-4">
-            <Button variant="default" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium hidden md:flex">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium hidden md:flex"
+              onClick={() => window.open('https://wa.me/918639648822', '_blank')}
+            >
               Start a Project
             </Button>
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hidden lg:flex">
@@ -458,7 +463,10 @@ const Navigation = () => {
                           <Phone className="h-5 w-5" />
                           <span>+91 8639648822</span>
                         </div>
-                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
+                        <Button 
+                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+                          onClick={() => window.open('https://wa.me/918639648822', '_blank')}
+                        >
                           Start a Project
                         </Button>
                         <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium">

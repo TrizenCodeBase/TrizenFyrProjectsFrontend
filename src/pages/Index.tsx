@@ -7,6 +7,7 @@ import SampleProjectsSection from "@/components/SampleProjectsSection";
 import DeliverablesSection from "@/components/DeliverablesSection";
 import LeadCaptureSection from "@/components/LeadCaptureSection";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <DeliverablesSection />
       <LeadCaptureSection />
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };

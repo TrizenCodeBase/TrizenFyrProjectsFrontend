@@ -119,7 +119,10 @@ const SampleProjectsSection = () => {
                 </div>
 
                 {/* CTA */}
-                <Button className="w-full bg-primary hover:bg-primary-dark shadow-elegant group">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary-dark shadow-elegant group"
+                  onClick={() => window.open('https://wa.me/918639648822', '_blank')}
+                >
                   Contact Us to Start
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -137,6 +140,7 @@ const SampleProjectsSection = () => {
             variant="outline" 
             size="lg"
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 group"
+            onClick={() => window.open('https://wa.me/918639648822', '_blank')}
           >
             View All Projects
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

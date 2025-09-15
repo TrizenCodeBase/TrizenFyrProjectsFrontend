@@ -51,6 +51,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="border-2 border-teal-400 text-teal-300 hover:bg-teal-600 hover:text-white px-8 py-6 text-lg font-semibold group backdrop-blur-sm bg-white/10 transition-all duration-300"
+              onClick={() => window.open('https://wa.me/918639648822', '_blank')}
             >
               <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
               Start Your Project
