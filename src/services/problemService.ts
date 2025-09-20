@@ -9,6 +9,18 @@ const api = axios.create({
   },
 });
 
+// Add response interceptor to handle errors gracefully
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Log error in development only
+    if (import.meta.env.DEV) {
+      console.warn('API Error:', error.response?.status, error.message);
+    }
+    return Promise.reject(error);
+  }
+);
+
 // Problem Statement interface
 export interface ProblemStatement {
   _id: string;

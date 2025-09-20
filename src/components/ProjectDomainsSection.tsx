@@ -20,9 +20,12 @@ import { problemService } from "@/services/problemService";
 
 const ProjectDomainsSection = () => {
   // Fetch domain statistics
-  const { data: domainStats, isLoading } = useQuery({
+  const { data: domainStats, isLoading, error } = useQuery({
     queryKey: ['domain-stats'],
     queryFn: () => problemService.getDomainStats(),
+    retry: 1,
+    retryDelay: 1000,
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
   const domains = [
@@ -101,13 +104,12 @@ const ProjectDomainsSection = () => {
             const projectCount = getProjectCount(domain.title);
             
             return (
-              <Card 
-                key={index} 
-                className="card-hover cursor-pointer border-2 hover:border-primary/20 group animate-slide-up"
-                style={{animationDelay: `${index * 0.1}s`}}
-                asChild
-              >
-                <Link to={`/projects/domain/${encodeURIComponent(domain.title)}`}>
+              <Link to={`/projects/domain/${encodeURIComponent(domain.title)}`}>
+                <Card 
+                  key={index} 
+                  className="card-hover cursor-pointer border-2 hover:border-primary/20 group animate-slide-up"
+                  style={{animationDelay: `${index * 0.1}s`}}
+                >
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">
                       <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r ${domain.gradient} shadow-elegant group-hover:shadow-glow transition-all duration-300`}>
@@ -138,8 +140,8 @@ const ProjectDomainsSection = () => {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </CardContent>
-                </Link>
-              </Card>
+                </Card>
+              </Link>
             );
           })}
         </div>
