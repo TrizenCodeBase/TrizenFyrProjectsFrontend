@@ -1,5 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { 
   Brain, 
   Wifi, 
@@ -9,10 +13,18 @@ import {
   BarChart3, 
   Network, 
   Cpu,
-  ArrowRight
+  ArrowRight,
+  Users
 } from "lucide-react";
+import { problemService } from "@/services/problemService";
 
 const ProjectDomainsSection = () => {
+  // Fetch domain statistics
+  const { data: domainStats, isLoading } = useQuery({
+    queryKey: ['domain-stats'],
+    queryFn: () => problemService.getDomainStats(),
+  });
+
   const domains = [
     {
       icon: Brain,
@@ -64,6 +76,12 @@ const ProjectDomainsSection = () => {
     }
   ];
 
+  const getProjectCount = (domainTitle: string) => {
+    if (!domainStats) return 0;
+    const stat = domainStats.find(s => s._id === domainTitle);
+    return stat ? stat.count : 0;
+  };
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -79,34 +97,51 @@ const ProjectDomainsSection = () => {
 
         {/* Domains Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {domains.map((domain, index) => (
-            <Card 
-              key={index} 
-              className="card-hover cursor-pointer border-2 hover:border-primary/20 group animate-slide-up"
-              style={{animationDelay: `${index * 0.1}s`}}
-            >
-              <CardHeader className="pb-4">
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r ${domain.gradient} mb-4 shadow-elegant group-hover:shadow-glow transition-all duration-300`}>
-                  <domain.icon className="h-7 w-7 text-white" />
-                </div>
-                <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {domain.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <CardDescription className="text-muted-foreground mb-6 leading-relaxed">
-                  {domain.description}
-                </CardDescription>
-                <Button 
-                  variant="ghost" 
-                  className="w-full text-primary hover:text-primary-foreground hover:bg-primary group/btn"
-                >
-                  Explore Projects
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {domains.map((domain, index) => {
+            const projectCount = getProjectCount(domain.title);
+            
+            return (
+              <Card 
+                key={index} 
+                className="card-hover cursor-pointer border-2 hover:border-primary/20 group animate-slide-up"
+                style={{animationDelay: `${index * 0.1}s`}}
+                asChild
+              >
+                <Link to={`/projects/domain/${encodeURIComponent(domain.title)}`}>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r ${domain.gradient} shadow-elegant group-hover:shadow-glow transition-all duration-300`}>
+                        <domain.icon className="h-7 w-7 text-white" />
+                      </div>
+                      {isLoading ? (
+                        <Skeleton className="h-6 w-12" />
+                      ) : (
+                        <Badge variant="secondary" className="flex items-center gap-1">
+                          <Users className="h-3 w-3" />
+                          {projectCount}
+                        </Badge>
+                      )}
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {domain.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <CardDescription className="text-muted-foreground mb-6 leading-relaxed">
+                      {domain.description}
+                    </CardDescription>
+                    <Button 
+                      variant="ghost" 
+                      className="w-full text-primary hover:text-primary-foreground hover:bg-primary group/btn"
+                    >
+                      Explore Projects
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Button>
+                  </CardContent>
+                </Link>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Call to Action */}
