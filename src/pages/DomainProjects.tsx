@@ -8,10 +8,10 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
-import { 
+import {
   Search, 
-  Filter, 
-  ArrowLeft, 
+  Filter,
+  ArrowLeft,
   Eye, 
   Clock, 
   Code, 
@@ -20,9 +20,18 @@ import {
   Users,
   TrendingUp,
   ArrowRight,
-  MessageCircle
+  MessageCircle,
+  Download,
+  Phone,
+  Mail,
+  Award
 } from 'lucide-react';
 import { problemService, ProblemStatement, ProblemFilters } from '@/services/problemService';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import UrgencyBanner from '@/components/UrgencyBanner';
+import SocialProofNotification from '@/components/SocialProofNotification';
 
 const DomainProjects = () => {
   const { domain } = useParams<{ domain: string }>();
@@ -138,6 +147,9 @@ const DomainProjects = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <UrgencyBanner />
+      <Navigation />
+      
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
         {/* Background Pattern */}
@@ -185,216 +197,324 @@ const DomainProjects = () => {
 
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
-
-        {/* Search and Filters */}
-        <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 p-8 mb-8">
-          <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
-            {/* Search */}
-            <div className="relative flex-1 max-w-lg">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" />
-              <Input
-                placeholder="Search projects by title, technology, or keywords..."
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                className="pl-12 h-12 text-base border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-lg font-medium"
-              />
-            </div>
-            
-            {/* Filter Buttons */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center bg-gray-100 rounded-xl p-1.5 border-2 border-gray-200">
-                <button 
-                  className={`px-4 py-2.5 text-sm font-bold rounded-lg transition-all duration-200 ${
-                    !filters.difficulty && !filters.category 
-                      ? 'bg-white text-blue-700 shadow-md border border-blue-200' 
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                  onClick={() => {
-                    setFilters(prev => ({ ...prev, difficulty: undefined, category: undefined, page: 1 }));
-                  }}
-                >
-                  All
-                </button>
-                <button 
-                  className={`px-4 py-2.5 text-sm font-bold rounded-lg transition-all duration-200 ${
-                    filters.difficulty === 'Advanced' 
-                      ? 'bg-white text-blue-700 shadow-md border border-blue-200' 
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                  onClick={() => {
-                    setFilters(prev => ({ ...prev, difficulty: 'Advanced', page: 1 }));
-                  }}
-                >
-                  Advanced
-                </button>
-                <button 
-                  className={`px-4 py-2.5 text-sm font-bold rounded-lg transition-all duration-200 ${
-                    filters.difficulty === 'Intermediate' 
-                      ? 'bg-white text-blue-700 shadow-md border border-blue-200' 
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                  onClick={() => {
-                    setFilters(prev => ({ ...prev, difficulty: 'Intermediate', page: 1 }));
-                  }}
-                >
-                  Intermediate
-                </button>
-                <button 
-                  className={`px-4 py-2.5 text-sm font-bold rounded-lg transition-all duration-200 ${
-                    filters.difficulty === 'Beginner' 
-                      ? 'bg-white text-blue-700 shadow-md border border-blue-200' 
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                  onClick={() => {
-                    setFilters(prev => ({ ...prev, difficulty: 'Beginner', page: 1 }));
-                  }}
-                >
-                  Beginner
-                </button>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Main Content - 3 columns */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              {/* Header */}
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  {domainName} Projects
+                </h2>
+                <p className="text-gray-600">
+                  Explore our comprehensive collection of {domainName.toLowerCase()} projects with complete source code, 
+                  documentation, and 24/7 expert support. Perfect for final year students and researchers.
+                </p>
               </div>
               
-              {/* Download Button */}
-              <Button variant="outline" size="default" className="font-semibold text-base px-6 py-2.5 border-2 border-gray-400 text-gray-700 hover:bg-green-50 hover:border-green-500 hover:text-green-700 transition-all duration-200 shadow-sm hover:shadow-md">
-                <ArrowRight className="mr-2 h-5 w-5 rotate-[-90deg]" />
-                Download Titles
-              </Button>
+              {/* Search and Filters */}
+              <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                <div className="flex gap-4 items-center mb-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                    <Input
+                      placeholder="Search projects by title, technology, or keywords..."
+                      value={searchQuery}
+                      onChange={(e) => handleSearch(e.target.value)}
+                      className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    />
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center gap-2 border-orange-200 text-orange-600 hover:bg-orange-50"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download Titles
+                  </Button>
+                </div>
+                
+                {/* Filter Tags */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Filter className="h-4 w-4" />
+                    <span>Filter by:</span>
+                  </div>
+                  {['All', 'Advanced', 'Intermediate', 'Beginner'].map(filter => (
+                    <button
+                      key={filter}
+                      onClick={() => {
+                        if (filter === 'All') {
+                          setFilters(prev => ({ ...prev, difficulty: undefined, page: 1 }));
+                        } else {
+                          setFilters(prev => ({ ...prev, difficulty: filter as 'Beginner' | 'Intermediate' | 'Advanced', page: 1 }));
+                        }
+                      }}
+                      className={`px-3 py-1 text-xs rounded-full transition-all duration-200 ${
+                        (filter === 'All' && !filters.difficulty) || filters.difficulty === filter
+                          ? 'bg-orange-100 text-orange-800 border border-orange-200'
+                          : 'bg-white border border-gray-300 text-gray-700 hover:bg-orange-50 hover:border-orange-200'
+                      }`}
+                    >
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Projects Grid */}
+              <div className="space-y-4">
+                {problemsData?.data && problemsData.data.length > 0 ? (
+                  problemsData.data.map((project: ProblemStatement) => (
+                    <div key={project._id} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-all duration-300 group">
+                      <div className="flex justify-between items-start mb-3">
+                        <div className="flex-1">
+                          {/* Header with badges */}
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                              {project.id}
+                            </span>
+                            <span className="text-xs text-gray-500 flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              8-10 weeks
+                            </span>
+                            <span className={`text-xs px-2 py-1 rounded-full font-medium ${getDifficultyColor(project.difficulty || 'Intermediate')}`}>
+                              {project.difficulty || 'Intermediate'}
+                            </span>
+                            <span className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full font-medium">
+                              ⭐ Featured
+                            </span>
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-orange-600 transition-colors">
+                            {project.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                            {project.abstract}
+                          </p>
+
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {project.technologies.slice(0, 4).map(tech => (
+                              <span key={tech} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                                {tech}
+                              </span>
+                            ))}
+                            {project.technologies.length > 4 && (
+                              <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                                +{project.technologies.length - 4} more
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Features */}
+                          <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span className="flex items-center gap-1 text-green-600">
+                              <Code className="h-3 w-3" />
+                              Source Code
+                            </span>
+                            <span className="flex items-center gap-1 text-blue-600">
+                              <Star className="h-3 w-3" />
+                              4.8
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Users className="h-3 w-3" />
+                              156 enrolled
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="ml-4 flex flex-col gap-2 min-w-[120px]">
+                          <Button 
+                            size="sm" 
+                            className="bg-orange-600 hover:bg-orange-700 text-white"
+                            asChild
+                          >
+                            <Link to={`/projects/${project.id}`}>
+                              View Details
+                            </Link>
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="text-xs border-orange-200 text-orange-600 hover:bg-orange-50"
+                            onClick={() => window.open('https://wa.me/918639648822', '_blank')}
+                          >
+                            Quick Enquiry
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center py-16">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Code className="h-10 w-10 text-blue-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      No Projects Available
+                    </h3>
+                    <p className="text-gray-600 mb-8 max-w-md mx-auto leading-relaxed">
+                      We're currently updating our {domainName.toLowerCase()} project collection. Check back soon for new additions!
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <Button asChild variant="outline" className="border-gray-300 text-gray-600 hover:bg-gray-50">
+                        <Link to="/">
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Back to Home
+                        </Link>
+                      </Button>
+                      <Button onClick={() => window.open('https://wa.me/918639648822', '_blank')} className="bg-blue-600 hover:bg-blue-700">
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        Request Projects
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Pagination */}
+              {problemsData && problemsData.pages > 1 && (
+                <div className="mt-8 flex justify-center">
+                  <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      disabled={filters.page === 1}
+                      onClick={() => setFilters(prev => ({ ...prev, page: (prev.page || 1) - 1 }))}
+                      className="text-gray-600 hover:text-gray-900 disabled:text-gray-400"
+                    >
+                      Previous
+                    </Button>
+                    <span className="text-sm text-gray-600 px-4">
+                      Page {filters.page} of {problemsData.pages}
+                    </span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      disabled={filters.page === problemsData.pages}
+                      onClick={() => setFilters(prev => ({ ...prev, page: (prev.page || 1) + 1 }))}
+                      className="text-gray-600 hover:text-gray-900 disabled:text-gray-400"
+                    >
+                      Next
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Sidebar - 1 column */}
+          <div className="space-y-6">
+            {/* CTA Section */}
+            <div className="sticky top-4 bg-white border border-gray-200 rounded-lg p-4 shadow-lg">
+              <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <span className="text-orange-600">🚀</span>
+                Ready to Start Your Project?
+              </h3>
+              
+              <div className="space-y-2 mb-4">
+                <Button 
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                  onClick={() => window.open('tel:+918639648822', '_self')}
+                >
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call Now: +91 8639648822
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full border-green-200 text-green-600 hover:bg-green-50"
+                  onClick={() => window.open('https://wa.me/918639648822', '_blank')}
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  WhatsApp Chat
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full border-blue-200 text-blue-600 hover:bg-blue-50"
+                  onClick={() => window.open('mailto:support@trizenventures.com', '_self')}
+                >
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email Us
+                </Button>
+              </div>
+
+              {/* Social Proof */}
+              <div className="border-t border-gray-100 pt-3">
+                <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-2">
+                  <div className="flex items-center gap-1">
+                    <Star className="h-3 w-3 text-yellow-500" />
+                    <span>4.9/5 Rating</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users className="h-3 w-3 text-blue-500" />
+                    <span>1000+ Students</span>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-1 text-xs text-gray-500">
+                    <Award className="h-3 w-3 text-orange-500" />
+                    <span>IEEE Certified Projects</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="text-center p-2 bg-green-50 rounded">
+                    <div className="font-medium text-green-800">✓ 24/7 Support</div>
+                  </div>
+                  <div className="text-center p-2 bg-blue-50 rounded">
+                    <div className="font-medium text-blue-800">✓ 100% Guarantee</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Related Topics */}
+            <div className="bg-white border border-gray-200 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="text-orange-600">📚</span>
+                Related Topics
+              </h3>
+              
+              <div className="space-y-2">
+                <div className="border border-gray-100 rounded-lg">
+                  <div className="p-3 text-left hover:bg-gray-50 transition-colors">
+                    <span className="font-medium text-gray-800">Python</span>
+                  </div>
+                </div>
+                <div className="border border-gray-100 rounded-lg">
+                  <div className="p-3 text-left hover:bg-gray-50 transition-colors">
+                    <span className="font-medium text-gray-800">Machine Learning</span>
+                  </div>
+                </div>
+                <div className="border border-gray-100 rounded-lg">
+                  <div className="p-3 text-left hover:bg-gray-50 transition-colors">
+                    <span className="font-medium text-gray-800">Deep Learning</span>
+                  </div>
+                </div>
+                <div className="border border-gray-100 rounded-lg">
+                  <div className="p-3 text-left hover:bg-gray-50 transition-colors">
+                    <span className="font-medium text-gray-800">Data Science</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Projects Table */}
-        {problemsData?.data && problemsData.data.length > 0 ? (
-          <div className="bg-white rounded-xl shadow-xl border-2 border-gray-200 overflow-hidden">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-b-2 border-gray-300 bg-gradient-to-r from-gray-100 to-gray-50">
-                    <TableHead className="text-sm font-bold text-gray-800 uppercase tracking-wide py-6 px-8">ID</TableHead>
-                    <TableHead className="text-sm font-bold text-gray-800 uppercase tracking-wide py-6 px-8">Title</TableHead>
-                    <TableHead className="text-sm font-bold text-gray-800 uppercase tracking-wide py-6 px-8">Abstract</TableHead>
-                    <TableHead className="text-sm font-bold text-gray-800 uppercase tracking-wide py-6 px-8">Technologies/Tools Involved</TableHead>
-                    <TableHead className="text-sm font-bold text-gray-800 uppercase tracking-wide py-6 px-8 text-center">View Details</TableHead>
-                  </TableRow>
-                </TableHeader>
-              <TableBody>
-                {problemsData.data.map((project: ProblemStatement, index) => (
-                  <TableRow 
-                    key={project._id} 
-                    className={`group transition-all duration-200 border-b border-gray-200 ${
-                      index % 2 === 0 
-                        ? 'bg-white hover:bg-blue-50/30' 
-                        : 'bg-gray-50/50 hover:bg-blue-50/40'
-                    } hover:shadow-sm hover:border-blue-200`}
-                  >
-                    <TableCell className="py-6 px-8">
-                      <div className="font-mono text-base font-bold text-blue-700 tracking-wide">
-                        {project.id}
-                      </div>
-                    </TableCell>
-                    <TableCell className="py-6 px-8">
-                      <div className="font-bold text-gray-900 text-lg leading-tight group-hover:text-blue-800 transition-colors">
-                        {project.title}
-                      </div>
-                    </TableCell>
-                    <TableCell className="py-6 px-8">
-                      <div className="text-base text-gray-700 leading-relaxed max-w-lg font-medium">
-                        {project.abstract}
-                      </div>
-                    </TableCell>
-                    <TableCell className="py-6 px-8">
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex} 
-                            variant="outline" 
-                            className="text-sm font-semibold bg-white border-2 border-gray-300 text-gray-800 hover:border-blue-400 hover:text-blue-700 transition-colors px-3 py-1.5"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.technologies.length > 4 && (
-                          <Badge 
-                            variant="outline" 
-                            className="text-sm font-semibold bg-gray-100 border-2 border-gray-400 text-gray-700 px-3 py-1.5"
-                          >
-                            +{project.technologies.length - 4}
-                          </Badge>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell className="py-6 px-8 text-center">
-                      <Button 
-                        asChild 
-                        size="default" 
-                        variant="outline" 
-                        className="font-semibold text-base px-6 py-2.5 border-2 border-gray-400 text-gray-700 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
-                      >
-                        <Link to={`/projects/${project.id}`}>
-                          View Details
-                        </Link>
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              </Table>
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Code className="h-10 w-10 text-blue-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
-              No Projects Available
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto leading-relaxed">
-              We're currently updating our {domainName.toLowerCase()} project collection. Check back soon for new additions!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild variant="outline" className="border-gray-300 text-gray-600 hover:bg-gray-50">
-                <Link to="/">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Home
-                </Link>
-              </Button>
-              <Button onClick={() => window.open('https://wa.me/918639648822', '_blank')} className="bg-blue-600 hover:bg-blue-700">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Request Projects
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Pagination */}
-        {problemsData && problemsData.pages > 1 && (
-          <div className="mt-8 flex justify-center">
-            <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                disabled={filters.page === 1}
-                onClick={() => setFilters(prev => ({ ...prev, page: (prev.page || 1) - 1 }))}
-                className="text-gray-600 hover:text-gray-900 disabled:text-gray-400"
-              >
-                Previous
-              </Button>
-              <span className="text-sm text-gray-600 px-4">
-                Page {filters.page} of {problemsData.pages}
-              </span>
-              <Button
-                variant="ghost"
-                size="sm"
-                disabled={filters.page === problemsData.pages}
-                onClick={() => setFilters(prev => ({ ...prev, page: (prev.page || 1) + 1 }))}
-                className="text-gray-600 hover:text-gray-900 disabled:text-gray-400"
-              >
-                Next
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
+      
+      <Footer />
+      <SocialProofNotification />
+      <FloatingWhatsApp />
     </div>
   );
 };
